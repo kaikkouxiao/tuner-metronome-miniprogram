@@ -49,6 +49,8 @@
   font-size: 28rpx;
   font-weight: 500;
   margin-bottom: 4rpx;
+  flex-shrink: 0;
+  margin-right: 30rpx;
 }
 .field-label::before { content: '♪ '; color: #e8b04b; }
 .picker-val { color: #555; font-size: 28rpx; }
