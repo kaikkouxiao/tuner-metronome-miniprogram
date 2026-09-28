@@ -1,0 +1,11 @@
+{
+  "description": "琴类调音节拍器：改写本地生活案例",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "latest",
+  "setting": {
+    "es6": true,
+    "minified": true,
+    "urlCheck": false
+  }
+}

@@ -1,0 +1,6 @@
+/* app.wxss 全局样式：调音器深色主题 */
+page {
+  background: #f7f5f2;
+  color: #333333;
+  font-size: 28rpx;
+}

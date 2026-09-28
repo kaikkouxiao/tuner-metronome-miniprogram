@@ -1,0 +1,62 @@
+<!-- pages/record/record.wxml 表单页：调音记录（自定义导航栏） -->
+<view class="page">
+
+  <!-- 自定义顶部导航栏：状态栏高度 + 胶囊对齐 -->
+  <view class="custom-nav" style="padding-top: {{statusBarHeight}}px; height: {{navTotal}}px;">
+    <view class="nav-inner" style="height: {{navContent}}px;">
+      <view class="nav-back" bindtap="goBack">‹</view>
+      <text class="nav-title">调音记录</text>
+      <view class="nav-right">♪</view>
+    </view>
+  </view>
+  <!-- 占位：把内容顶到导航栏下面 -->
+  <view style="height: {{navTotal}}px;"></view>
+
+  <form bindsubmit="onSubmit" bindreset="onReset">
+    <view class="card">
+
+      <!-- 乐器选择 -->
+      <view class="field">
+        <text class="field-label">乐器</text>
+        <picker name="instrument" range="{{instruments}}" value="{{instrumentIndex}}"
+                bindchange="onInstrument">
+          <view class="picker-val">{{instruments[instrumentIndex]}} <text class="arrow">›</text></view>
+        </picker>
+      </view>
+
+      <!-- 琴弦单选 -->
+      <view class="field">
+        <text class="field-label">琴弦</text>
+        <radio-group name="string" class="radios">
+          <label class="radio" wx:for="{{strings}}" wx:key="*this">
+            <radio value="{{item}}" checked="{{index === 5}}" color="#e8b04b" />{{item}}弦
+          </label>
+        </radio-group>
+      </view>
+
+      <!-- 音高偏差滑块 -->
+      <view class="field column">
+        <text class="field-label">音高偏差</text>
+        <slider name="cents" min="-50" max="50" value="0"
+                activeColor="#e8b04b" block-color="#e8b04b" block-size="20"
+                bindchanging="onCents" show-value />
+      </view>
+
+      <!-- 是否已校准 -->
+      <view class="field">
+        <text class="field-label">已校准（IN TUNE）</text>
+        <switch name="tuned" color="#e8b04b" />
+      </view>
+
+      <!-- 备注 -->
+      <view class="field column">
+        <text class="field-label">备注</text>
+        <textarea name="note" class="ta" placeholder="例如：降半音后 3 弦略偏高…" />
+      </view>
+
+      <button form-type="submit" class="submit">保存调音记录</button>
+      <button form-type="reset" class="reset">清空</button>
+    </view>
+  </form>
+
+</view>

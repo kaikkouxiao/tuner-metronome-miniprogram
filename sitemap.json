@@ -1,0 +1,4 @@
+{
+  "desc": "琴类调音节拍器",
+  "rules": [{ "action": "allow", "page": "*" }]
+}

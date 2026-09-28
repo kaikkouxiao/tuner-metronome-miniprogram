@@ -1,0 +1,42 @@
+<!-- pages/index/index.wxml 首页：改写"本地生活"案例 → 调音器首页 -->
+<view class="page">
+
+  <!-- 顶部搜索栏（对应"本地生活"的搜索框） -->
+  <view class="search-bar">
+    <view class="search-box">
+      <text class="search-icon">♪</text>
+      <input placeholder="搜索乐器 / 调弦法" disabled />
+    </view>
+  </view>
+
+  <!-- 轮播图：swiper 组件 -->
+  <swiper class="banner" indicator-dots autoplay circular interval="3000"
+          indicator-color="rgba(255,255,255,0.4)" indicator-active-color="#e8b04b">
+    <swiper-item wx:for="{{banners}}" wx:key="*this">
+      <image src="{{item}}" mode="aspectFill" />
+    </swiper-item>
+  </swiper>
+
+  <!-- 九宫格分类（对应"本地生活"的频道入口） -->
+  <view class="grid">
+    <view class="grid-item" wx:for="{{grids}}" wx:key="name"
+          bindtap="onGrid" data-name="{{item.name}}">
+      <view class="grid-icon">{{item.icon}}</view>
+      <text class="grid-name">{{item.name}}</text>
+    </view>
+  </view>
+
+  <!-- 列表：常用调弦方案 -->
+  <view class="section-title">常用调弦方案</view>
+  <view class="list">
+    <view class="list-item" wx:for="{{tunings}}" wx:key="name"
+          bindtap="onTuning" data-name="{{item.name}}">
+      <view class="list-main">
+        <view class="list-name">{{item.name}}</view>
+        <view class="list-desc">{{item.notes}} · {{item.desc}}</view>
+      </view>
+      <view class="list-tag">{{item.tag}}</view>
+    </view>
+  </view>
+
+</view>
